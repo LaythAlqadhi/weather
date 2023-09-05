@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --lightwhite: rgb(255,255,255, 75%);
+  --floralwhite: floralwhite;
+  --nightmode: linear-gradient(rgb(0, 0, 0), rgb(17, 17, 0), rgb(51, 34, 0));
+  --daymode: linear-gradient(rgb(0, 153, 255), rgb(0, 102, 153), rgb(0, 51, 102));
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100hv;
+  width: 100%;
+  font-family: 'Ubuntu', sans-serif;
+  color: floralwhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--floralwhite);
+  text-align: center;
+}
+
+.logo {
+  margin-top: 20px;
+  font-size: 48px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 40px;
+  margin: 20px 0;
+}
+
+.search-container.active {
+  border-color: #900;
+  background-color: #fdd;
+  animation: shake 0.5s ease-in-out;
+  animation-fill-mode: both;
+}
+
+
+#search {
+  background-color: var(--floralwhite);
+  appearance: none;
+  outline: none;
+  width: 280px;
+  height: 40px;
+  border: none;
+  border-radius: 3px;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.submit {
+  background-color: var(--floralwhite);
+  border-radius: 3px;
+  width: 35px;
+  height: 40px;
+  border: none;
+  margin: -5px;
+  cursor: pointer;
+}
+
+.units {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.us-units,
+.metric-units {
+  background-color: var(--floralwhite);
+  color: #444;
+  border: none;
+  font-size: 18px;
+  padding: 5px 10px;
+  margin: 0 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+
+.current-weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.location {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 32px;
+}
+
+.time {
+  color: var(--lightwhite);
+}
+
+.current-temp {
+  font-size: 78px;
+  margin: 15px 0;
+}
+
+.text {
+  font-size: 24px;
+}
+
+.feels-like {
+  font-size: 20px;
+  color: var(--lightwhite);
+}
+
+.weather-details {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 75px);
+  margin: 10px 0;
+}
+
+.weather-details div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-details div:last-child {
+  font-size: 20px;
+  color: var(--floralwhite);
+}
+
+.weather-details div:first-child {
+  padding-bottom: 15px;
+  font-size: 16px;
+  color: var(--lightwhite);
+}
+
+#moon-phase {
+  font-size: 32px;
+  margin-top: -12px;
+}
+
+.forecast > div {
+  border-bottom: 2px solid var(--lightWhite);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  justify-items: center;
+  gap: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.forecast > div > div {
+  padding-bottom: 10px;
+}
+
+.forecast > div > div:first-child {
+  grid-row: 1/3;
+  grid-column: 1/2;
+  align-self: center;
+}
+
+.forecast > div > div:last-child {
+  grid-row: 1/3;
+  grid-column: 3/4;
+  align-self: center;
+  font-size: 36px;
+}
+
+.forecast > div:last-child {
+  border: none;
+}
+
+.forecast {
+  width: 100%;
+  padding: 25px;
+}
+
+.footer {
+  width: 100%;
+  font-size: 14px;
+  color: var(--lightwhite);
+  margin: 25px 0;
+}
+
+.footer div {
+  display: inline;
+}
+
+.footer a {
+  color: var(--floralwhite);
+  text-decoration: none;
+  cursor: pointer
+}
+
+.low-uv {
+  background-color: green;
+}
+
+.mid-uv {
+  background-color: orange;
+}
+
+.high-uv {
+  background-color: red;
+}
+
+.very-high-uv {
+  background-color: darkred;
+}
+
+
+.low-uv,
+.mid-uv,
+.high-uv,
+.very-high-uv {
+  border-radius: 50%;
+  width: 35px;
+  padding: 5px;
+  margin-top: -8px;
+}
+
+.loading-spinner {
+  visibility: hidden;
+  position: fixed;
+  top: 40%;
+  border: 25px solid rgba(255, 255, 255, 0.25);
+  border-top: 25px solid var(--floralwhite);
+  border-radius: 50%;
+  width: 200px; 
+  height: 200px;
+  animation: spin 0.5s linear infinite;
+}
+
+.loading-spinner.active {
+  visibility: visible;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+  }
+}
