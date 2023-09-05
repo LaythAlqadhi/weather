@@ -18,7 +18,7 @@ WeatherApp is a web application that allows users to check the weather forecast 
 
 ## Screenshots
 
-![WeatherApp Screenshot](/weatherapp.png)
+![WeatherApp Screenshot](/weatherapp.jpg)
 
 ## Preview
 
